@@ -29,8 +29,11 @@ public class A1Novice {
 				customers[i].totalCost = customers[i].totalCost + items[j].calcTotalPrice();
 			}
 			
+			
 			System.out.println(customers[i].first.charAt(0) + ". " + customers[i].last + ": " + String.format("%.2f", customers[i].totalCost));
 		}
+		
+		scan.close();
 		
 		
 			

@@ -89,7 +89,10 @@ public class A1Adept {
 	
 	static class Item {
 		String name; 
-		double price; 
+		double price;
+		int totalQ = 0; 
+		int customerCount; 
+		
 		
 		 public void setName (String n) {
 			 name = n;
@@ -98,6 +101,16 @@ public class A1Adept {
 		 public void setPrice (double p) {
 			 price = p;
 		 }
+		 
+		 public void updateTotal (int q) {
+			 totalQ = totalQ + q;
+		 }
+		 
+		 public void updateCC () {
+			 customerCount += 1;
+		 }
+		 
+		 
 	}
 	
 	
