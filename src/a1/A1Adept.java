@@ -72,8 +72,8 @@ public class A1Adept {
 			}
 		}
 		
-		System.out.println("Biggest: " + maxN + "(" + String.format("%.2f", max) + ")");
-		System.out.println("Smallest: " + minN + "(" + String.format("%.2f", min) + ")");
+		System.out.println("Biggest: " + maxN + " (" + String.format("%.2f", max) + ")");
+		System.out.println("Smallest: " + minN + " (" + String.format("%.2f", min) + ")");
 		
 		double total = 0;
 		
@@ -83,7 +83,7 @@ public class A1Adept {
 		
 		double avg = total / cCount; 
 		
-		System.out.println("Average " + String.format("%.2f", avg));
+		System.out.println("Average: " + String.format("%.2f", avg));
 		
 	}
 	
