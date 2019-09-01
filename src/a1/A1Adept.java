@@ -22,9 +22,8 @@ public class A1Adept {
 		
 		Item[] possibleItems = new Item[count];
 		
-		// loop through array of possible items
-		// at each index create new item 
-		// for each item use scan to take in and set the name and price 
+		// iterate through possibleItems array and create new item at each index
+		// read and assign item information 
 		
 		for (int i=0; i<count; i++) {
 			possibleItems[i] = new Item();
@@ -40,9 +39,8 @@ public class A1Adept {
 		
 		Customer[] customers = new Customer[cCount];
 		
-		// loop through the customer array 
-		// at each index create a new customer 
-		// for each customer use scan to take in and set their name in items bought 
+		// iterate through the customer array and create new customer at each index 
+		// read and assign customer information 
 		
 		for (int i=0; i<cCount; i++) {
 			customers[i] = new Customer();
@@ -59,22 +57,15 @@ public class A1Adept {
 				int q = scan.nextInt(); 
 				String n = scan.next(); 
 				
-				// loop through the possible items array 
-				// if the name of the possible item matches the name of n, then use set total price method to 
-				// calculate the price of that item and add it to the customer's total 
+				// iterate through the possibleItems array 
+				// update customer total price  
 			
 				for (int k=0; k<count; k++) {
 					if (possibleItems[k].name.equals(n)) {
-					customers[i].setTotalPrice(q, possibleItems[k].price);
+						customers[i].setTotalPrice(q, possibleItems[k].price);
 					} 
 				}	
 			}
-			
-		
-		
-		
-		// use for loop to loop through the customers and find who has the min and max total price
-		// same for loop can determine the customer avg price
 		
 		}
 		
@@ -89,8 +80,7 @@ public class A1Adept {
 		double max = customers[0].totalPrice; 
 		String maxN = customers[0].name; 
 		
-		// loop through the customer array 
-		// is the total price for that customer is greater than the max or less than the min then update the variable's values 
+		// loop through the customer array and update min and max variables 
 		
 		for (int i=0; i<cCount; i++) {
 			if (customers[i].totalPrice>max) {
@@ -112,13 +102,13 @@ public class A1Adept {
 		
 		double total = 0;
 		
-		// iterate through customer array and add their total price to total 
+		// iterate through customer array and calculate total price 
 		
 		for (int i=0; i<cCount; i++) {
 			total = total + customers[i].totalPrice; 
 		}
 		
-		// calculate the average price by dividing total by the customer count
+		// calculate the average price 
 		
 		double avg = total / cCount; 
 		
@@ -128,9 +118,9 @@ public class A1Adept {
 		
 	}
 	
-	// Create item class to store information about each individual item (name, price, times counted, how many customers bought...)
+	// Item class stores information about each individual item 
 	// class has constructors to set values 
-	// class has methods to update customer count, the times counted, and the fluctuating total
+	// Methods defined to update values 
 	
 	static class Item {
 		String name;
@@ -172,7 +162,7 @@ public class A1Adept {
 		 
 	}
 	
-	// Customer array keeps track of information about each customer (name, items bought, total price)
+	// Customer class stores information about each customer 
 	// has constructors to set values and method to calculate total price
 	
 	static class Customer {

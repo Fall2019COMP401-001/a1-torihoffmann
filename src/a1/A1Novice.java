@@ -19,10 +19,9 @@ public class A1Novice {
 		
 		Customer[] customers = new Customer[count];
 		
-		// loop through the customer array 
-		// for each customer, use scan to take in their first name, last name, and number of items bought
-		// use methods defined in the customer class to set each of these values.
-		// create an item array for each of the customers that is the length of the number of items they bought 
+		// iterate through the array and create new customer at each index
+		// read and assign customer information
+		// create an item array for each of the customers  
 		
 		
 		for (int i=0; i<count; i++) {
@@ -32,11 +31,9 @@ public class A1Novice {
 			customers[i].setItemsBought(scan.nextInt());
 			Item[] items = new Item[customers[i].itemsBought];
 			
-			// loop through each customers item array 
-			// create a new item at each index
-			// for that item use scan to take in the quantity, name, and price of that item and assign them to the item object 
-			// calculate the customers total cost to the customer by adding the items price to the former total cost of the customer 
-			// the items price is calculated by calling a method defined in the items class 
+			// iterate through customer's item array and create new item at each index
+			// read and assign item information 
+			// calculate item price by calling item method and update total cost   
 			
 			for (int j=0; j<customers[i].itemsBought; j++) {
 				items[j] = new Item();
@@ -48,7 +45,8 @@ public class A1Novice {
 			
 			// print the customers name along with the total price calculated
 			
-			System.out.println(customers[i].first.charAt(0) + ". " + customers[i].last + ": " + String.format("%.2f", customers[i].totalCost));
+			System.out.println(customers[i].first.charAt(0) + ". " + customers[i].last + ": " 
+			+ String.format("%.2f", customers[i].totalCost));
 		}
 		
 		// all input parsed, so scanner closed. 
@@ -61,7 +59,7 @@ public class A1Novice {
 	}
 	
 	// customer class keeps track of customer's name, number of items bought and total cost
-	// it has constructors for reach of these values 
+	// it has constructors for each of these values 
 
 	static class Customer {
 		 String first;
@@ -87,7 +85,7 @@ public class A1Novice {
 	
 	// Item class keeps track of the quantity, name and price of each numbers
 	// it has constructors defined for each of its values 
-	// it also has a method defined to calculate the total price that an item will cost by multiplying the price by quantity 
+	// calcTotalPrice method defined to determine item price 
 	 
 	 static class Item {
 		 int quantity; 

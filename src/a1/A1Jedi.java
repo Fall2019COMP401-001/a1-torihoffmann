@@ -24,7 +24,7 @@ public class A1Jedi {
 		Item[] possibleItems = new Item[count];
 		
 		// iterate through possibleItems array and create new item at each index 
-		// for each item use scan to take in and set the name and price 
+		// read and set item name and price 
 		
 		for (int i=0; i<count; i++) {
 			possibleItems[i] = new Item();
@@ -58,10 +58,7 @@ public class A1Jedi {
 				temp = scan.nextInt();
 				tempN = scan.next();
 				
-				// iterate through the possibleItems array 
-				// if the name(tempN) matched the name of the item at that index, update the total 
-				// to be the previous total plus the quantity of that item bought (temp)
-				// also update the fluctuating total in the same way 
+				// iterate through the possibleItems array and update total quantity  
 				
 				for (int k=0; k<possibleItems.length; k++) {
 					if (possibleItems[k].name.equals(tempN)) {
@@ -73,17 +70,15 @@ public class A1Jedi {
 				
 			}
 			
-			 // iterate through the possible items array 
-			 // if the fluctuating total is now greater than zero, then the quantity has been updated for this customer 
-			 // Update the customer count for that item and then reset the fluctuating total to zero 
+			 // Update the customer count if the customer bought the item 
 			 
 			 for (int k=0; k<possibleItems.length; k++) {
-					if (possibleItems[k].totalQf>0) {
-						possibleItems[k].updateCC();
-						possibleItems[k].resetTotalf();
-					}
-				
+				if (possibleItems[k].totalQf>0) {
+					possibleItems[k].updateCC();
+					possibleItems[k].resetTotalf();
 				}
+				
+			}
 			 
 		}
 		
@@ -91,8 +86,6 @@ public class A1Jedi {
 		scan.close();
 		
 		// iterate through the possibeItems array and determine whether each item has been bought 
-		// if customer count is 0, then has not been bought and can print that statement 
-		// if customer count > 0, then the item has been bought 
 		// print the necessary information about the item at that index
 		
 		for (int i=0; i<possibleItems.length; i++) { 
@@ -107,5 +100,5 @@ public class A1Jedi {
 	} 
 		
 	
-	}
+}
 
