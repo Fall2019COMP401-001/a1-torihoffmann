@@ -8,13 +8,23 @@ public class A1Adept {
 
 	public static void main(String[] args) {
 		
+		
+		// Set up scanner object to read space-separated values
+		// from console input
+		
 		Scanner scan = new Scanner(System.in);
 
 		// Your code follows here.
 		
 		int count = scan.nextInt();
 		
+		// create array of all the possible items of length item count
+		
 		Item[] possibleItems = new Item[count];
+		
+		// loop through array of possible items
+		// at each index create new item 
+		// for each item use scan to take in and set the name and price 
 		
 		for (int i=0; i<count; i++) {
 			possibleItems[i] = new Item();
@@ -22,21 +32,36 @@ public class A1Adept {
 			possibleItems[i].setPrice(scan.nextDouble());
 		}
 		
+		// use scan to take in the count of customers 
 		
 		int cCount = scan.nextInt();
 		
+		// create a customer array with length of customer count
+		
 		Customer[] customers = new Customer[cCount];
+		
+		// loop through the customer array 
+		// at each index create a new customer 
+		// for each customer use scan to take in and set their name in items bought 
 		
 		for (int i=0; i<cCount; i++) {
 			customers[i] = new Customer();
 			customers[i].setName(scan.next(), scan.next());
 			customers[i].setItemsBought(scan.nextInt());
+			
 			// determine customer price and assign it to the object
+			
+			
 			for (int j=0; j<customers[i].itemsBought; j++) {
-				//find the prices of the 3 items bought and multiply by number of them to assign to total price
-				// if you get rid of this for loop errors disappear 
+				
+				// use scan to take in object quantity and name
+				
 				int q = scan.nextInt(); 
 				String n = scan.next(); 
+				
+				// loop through the possible items array 
+				// if the name of the possible item matches the name of n, then use set total price method to 
+				// calculate the price of that item and add it to the customer's total 
 			
 				for (int k=0; k<count; k++) {
 					if (possibleItems[k].name.equals(n)) {
@@ -53,13 +78,19 @@ public class A1Adept {
 		
 		}
 		
+		// all input parsed, so scanner closed.
+		
 		scan.close();
 		
+		// initialize max and min variables to be the price and name of the first customer 
 		
 		double min = customers[0].totalPrice;
 		String minN = customers[0].name; 
 		double max = customers[0].totalPrice; 
 		String maxN = customers[0].name; 
+		
+		// loop through the customer array 
+		// is the total price for that customer is greater than the max or less than the min then update the variable's values 
 		
 		for (int i=0; i<cCount; i++) {
 			if (customers[i].totalPrice>max) {
@@ -72,20 +103,34 @@ public class A1Adept {
 			}
 		}
 		
+		// print information of customers with the max and min total price
+		
 		System.out.println("Biggest: " + maxN + " (" + String.format("%.2f", max) + ")");
 		System.out.println("Smallest: " + minN + " (" + String.format("%.2f", min) + ")");
 		
+		// initialize total to keep track of the total amount spent by all customers 
+		
 		double total = 0;
+		
+		// iterate through customer array and add their total price to total 
 		
 		for (int i=0; i<cCount; i++) {
 			total = total + customers[i].totalPrice; 
 		}
 		
+		// calculate the average price by dividing total by the customer count
+		
 		double avg = total / cCount; 
+		
+		// print the average value 
 		
 		System.out.println("Average: " + String.format("%.2f", avg));
 		
 	}
+	
+	// Create item class to store information about each individual item (name, price, times counted, how many customers bought...)
+	// class has constructors to set values 
+	// class has methods to update customer count, the times counted, and the fluctuating total
 	
 	static class Item {
 		String name;
@@ -127,12 +172,13 @@ public class A1Adept {
 		 
 	}
 	
+	// Customer array keeps track of information about each customer (name, items bought, total price)
+	// has constructors to set values and method to calculate total price
 	
 	static class Customer {
 		String name;
 		int itemsBought;
-		double totalPrice;
-		int timesCounted = 0; 
+		double totalPrice; 
 		Item[] pItems;
 
 		 
@@ -148,14 +194,5 @@ public class A1Adept {
 			 totalPrice = totalPrice + (quantity * price);
 		 }
 		 
-		 public void updatetc () {
-			 timesCounted += 1;
-		 }
-		 
-		
-		 
-		 public void createItems (Item[] x) { 
-			 pItems = x; 
-		 } 
 	}
 }
