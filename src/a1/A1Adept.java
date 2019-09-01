@@ -88,9 +88,11 @@ public class A1Adept {
 	}
 	
 	static class Item {
-		String name; 
+		String name;
+		int timesCounted = 0;
 		double price;
 		int totalQ = 0; 
+		int totalQf = 0;
 		int customerCount; 
 		
 		
@@ -110,6 +112,18 @@ public class A1Adept {
 			 customerCount += 1;
 		 }
 		 
+		 public void updatetc () {
+			 timesCounted += 1;
+		 }
+		 
+		 public void updateTotalf (int q) {
+			 totalQf = totalQf + q;
+		 }
+		 
+		 public void resetTotalf () {
+			 totalQf = 0;
+		 }
+		 
 		 
 	}
 	
@@ -118,6 +132,8 @@ public class A1Adept {
 		String name;
 		int itemsBought;
 		double totalPrice;
+		int timesCounted = 0; 
+		Item[] pItems;
 
 		 
 		 public void setName (String f, String l) {
@@ -131,5 +147,15 @@ public class A1Adept {
 		 public void setTotalPrice (int quantity, double price) {
 			 totalPrice = totalPrice + (quantity * price);
 		 }
+		 
+		 public void updatetc () {
+			 timesCounted += 1;
+		 }
+		 
+		
+		 
+		 public void createItems (Item[] x) { 
+			 pItems = x; 
+		 } 
 	}
 }
